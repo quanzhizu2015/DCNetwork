@@ -16,4 +16,7 @@ FOUNDATION_EXPORT const unsigned char DCNetworkVersionString[];
 
 // In this header, you should import all the public headers of your framework using statements like #import <DCNetwork/PublicHeader.h>
 
-
+#import "DCRequestHandler.h"
+#import "DCRequestCache.h"
+#import "DCRequest.h"
+#import "DCBaseRequest.h"
