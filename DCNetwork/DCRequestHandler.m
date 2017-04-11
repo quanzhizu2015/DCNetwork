@@ -80,7 +80,8 @@
         dataTask.priority = NSURLSessionTaskPriorityHigh;
     }
     else {
-        dataTask.priority = NSURLSessionTaskPriorityDefault;
+       // dataTask.priority = NSURLSessionTaskPriorityDefault;
+        dataTask.priority = 0.5;
     }
     
     [dataTask resume];
