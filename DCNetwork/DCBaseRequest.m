@@ -22,6 +22,40 @@
 
 @implementation DCBaseRequest
 
++(DCBaseRequest *)requestWithAPI:(NSString *)api
+                           method:(DCHTTPMethod)method
+                           params:(NSObject *)params{
+    DCBaseRequest *request = [[DCBaseRequest alloc] init];
+    request.URLString = api;
+    request.method = DCHTTPMethodPost;
+    if (method) {
+        request.method = method;
+    }
+    request.parameters = params;
+    
+    return request;
+}
+
++(DCBaseRequest *)startRequestWithAPI:(NSString *)api
+                               method:(DCHTTPMethod)method
+                               params:(NSObject *)params
+                        completeBlock:(DCBaseRequestBlock)completeBlock{
+    
+    DCBaseRequest *request = [[DCBaseRequest alloc] init];
+    request.URLString = api;
+    request.method = DCHTTPMethodPost;
+    if (method) {
+        request.method = method;
+    }
+    request.parameters = params;
+    [request startWithCompletionBlock:^(__kindof DCBaseRequest *request) {
+        if (completeBlock) {
+            completeBlock(request);
+        }
+    }];
+    return request;
+}
+
 - (DCBaseRequest *)startWithCompletionBlock:(DCBaseRequestBlock)completionBlock {
     return [super startWithCompletionBlock:completionBlock];
 }

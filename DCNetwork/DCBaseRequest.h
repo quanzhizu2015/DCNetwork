@@ -21,6 +21,16 @@ typedef void (^DCBaseRequestBlock)(__kindof DCBaseRequest *request);
 @property (strong, nonatomic, readonly) NSString *errorMsg;
 
 
+//创建请求
++(DCBaseRequest *)requestWithAPI:(NSString *)api
+                           method:(DCHTTPMethod)method
+                           params:(NSObject *)params;
+//创建并发起请求
++(DCBaseRequest *)startRequestWithAPI:(NSString *)api
+                               method:(DCHTTPMethod)method
+                               params:(NSObject *)params
+                        completeBlock:(DCBaseRequestBlock)completeBlock;
+//开始请求
 - (DCBaseRequest *)startWithCompletionBlock:(DCBaseRequestBlock)completionBlock;
 
 
