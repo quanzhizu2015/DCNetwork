@@ -97,6 +97,12 @@
     return _HTTPSessionManager.requestSerializer.timeoutInterval;
 }
 
+- (void)setAccesstoken:(NSString *)accesstoken {
+    _accesstoken = accesstoken;
+    [self.HTTPSessionManager.requestSerializer setValue:accesstoken forHTTPHeaderField:@"accesstoken"];
+}
+
+
 - (void)setValue:(NSString *)value forBuiltinHeaderField:(NSString *)field {
     if (!_builtinHeaders) {
         _builtinHeaders = [NSMutableDictionary dictionary];

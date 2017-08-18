@@ -37,7 +37,10 @@ typedef NS_ENUM(NSInteger, DCHTTPMethod) {
  *  请求超时时间
  */
 @property (assign, nonatomic) NSTimeInterval timeoutInterval;
-
+/**
+ *  请求Token
+ */
+@property (strong, nonatomic) NSString *accesstoken;
 @property (strong, nonatomic) NSURL *baseURL;
 
 @property (strong, nonatomic, readonly) NSDictionary<NSString *, id> *builtinParameters;
