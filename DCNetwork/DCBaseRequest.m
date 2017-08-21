@@ -27,7 +27,7 @@
                            params:(NSObject *)params{
     DCBaseRequest *request = [[DCBaseRequest alloc] init];
     request.URLString = api;
-    request.method = DCHTTPMethodPost;
+    request.method = method;
     request.parameters = params;
     
     return request;
@@ -40,7 +40,7 @@
     
     DCBaseRequest *request = [[DCBaseRequest alloc] init];
     request.URLString = api;
-    request.method = DCHTTPMethodPost;
+    request.method = method;
     request.parameters = params;
     [request startWithCompletionBlock:^(__kindof DCBaseRequest *request) {
         if (completeBlock) {
