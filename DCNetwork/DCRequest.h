@@ -38,6 +38,8 @@ typedef void (^DCRequestBlock)(__kindof DCRequest *request);
 
 @property (copy, nonatomic) NSString *URLString;
 @property (copy, nonatomic) NSObject *parameters;
+//保存第一次请求参数
+@property (copy, nonatomic) NSObject *orginParameters;
 @property (assign, nonatomic) DCHTTPMethod method;
 
 
