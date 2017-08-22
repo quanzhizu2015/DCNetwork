@@ -29,7 +29,7 @@
     request.URLString = api;
     request.method = method;
     request.parameters = params;
-    
+    request.orginParameters = params;
     return request;
 }
 
@@ -42,6 +42,7 @@
     request.URLString = api;
     request.method = method;
     request.parameters = params;
+    request.orginParameters = params;
     [request startWithCompletionBlock:^(__kindof DCBaseRequest *request) {
         if (completeBlock) {
             completeBlock(request);
