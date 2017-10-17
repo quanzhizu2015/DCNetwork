@@ -52,5 +52,5 @@ typedef NS_ENUM(NSInteger, DCHTTPMethod) {
 
 - (void)setValue:(NSString *)value forBuiltinParameterField:(NSString *)field;
 - (void)setValue:(NSString *)value forBuiltinHeaderField:(NSString *)field;
-
+- (void)setCar:(NSString *)value ofType:(NSString *)type;
 @end

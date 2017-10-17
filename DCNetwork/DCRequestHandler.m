@@ -116,6 +116,22 @@
     [_builtinParameters setValue:value forKey:field];
 }
 
+- (void)setCar:(NSString *)value ofType:(NSString *)type{
+    
+    NSString *cerPath = [[NSBundle mainBundle] pathForResource:value ofType:type];
+    NSData * certData =[NSData dataWithContentsOfFile:cerPath];
+    NSArray * certSet = [[NSArray alloc] initWithObjects:certData, nil];
+    AFSecurityPolicy *securityPolicy = [AFSecurityPolicy policyWithPinningMode:AFSSLPinningModeCertificate];
+    // 是否在证书域字段中验证域名
+    securityPolicy.validatesDomainName = YES;
+    // 是否允许,NO-- 不允许无效的证书
+    [securityPolicy setAllowInvalidCertificates:NO];
+    
+    // 设置证书
+    [securityPolicy setPinnedCertificates:certSet];
+    _HTTPSessionManager.securityPolicy = securityPolicy;
+}
+
 #pragma mark help
 
 - (void)appendBuiltinHeadersForRequest:(NSMutableURLRequest *)request {
