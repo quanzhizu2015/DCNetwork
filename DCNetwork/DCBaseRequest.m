@@ -7,7 +7,7 @@
 //
 
 #import "DCBaseRequest.h"
-#import <MBProgressHUD/MBProgressHUD.h>
+
 #import <objc/message.h>
 
 
@@ -15,7 +15,7 @@
 
 @property (weak, nonatomic) UIView *loadingInView;
 
-@property (strong, nonatomic) MBProgressHUD *loadingView;
+
 
 @end
 

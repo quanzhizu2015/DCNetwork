@@ -7,7 +7,7 @@
 //
 #import "DCRequest.h"
 #import <UIKit/UIKit.h>
-
+#import <MBProgressHUD/MBProgressHUD.h>
 @class DCBaseRequest;
 
 typedef void (^DCBaseRequestBlock)(__kindof DCBaseRequest *request);
@@ -19,7 +19,7 @@ typedef void (^DCBaseRequestBlock)(__kindof DCBaseRequest *request);
 @property (strong, nonatomic, readonly) NSDictionary *responseData;
 
 @property (strong, nonatomic, readonly) NSString *errorMsg;
-
+@property (strong, nonatomic) MBProgressHUD *loadingView;
 
 //创建请求
 +(DCBaseRequest *)requestWithAPI:(NSString *)api
