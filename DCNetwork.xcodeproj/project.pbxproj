@@ -26,6 +26,8 @@
 		5599CBD31E98F06100DC3129 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5599CBD11E98F06100DC3129 /* Main.storyboard */; };
 		5599CBD51E98F06100DC3129 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5599CBD41E98F06100DC3129 /* Assets.xcassets */; };
 		5599CBD81E98F06100DC3129 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5599CBD61E98F06100DC3129 /* LaunchScreen.storyboard */; };
+		55A774231FAC107600D14CAB /* DCNetworkReachabilityManager.h in Headers */ = {isa = PBXBuildFile; fileRef = 55A774211FAC107600D14CAB /* DCNetworkReachabilityManager.h */; };
+		55A774241FAC107600D14CAB /* DCNetworkReachabilityManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 55A774221FAC107600D14CAB /* DCNetworkReachabilityManager.m */; };
 		C4668DA890297597B5FC3C94 /* libPods-DCNetwork.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 9A7BE0BC9E33BB64FB3C88C8 /* libPods-DCNetwork.a */; };
 /* End PBXBuildFile section */
 
@@ -56,6 +58,8 @@
 		5599CBD41E98F06100DC3129 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		5599CBD71E98F06100DC3129 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		5599CBD91E98F06100DC3129 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		55A774211FAC107600D14CAB /* DCNetworkReachabilityManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DCNetworkReachabilityManager.h; sourceTree = "<group>"; };
+		55A774221FAC107600D14CAB /* DCNetworkReachabilityManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DCNetworkReachabilityManager.m; sourceTree = "<group>"; };
 		5E02E664B3E6D8C3526E00DD /* Pods-DCNetwork.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DCNetwork.release.xcconfig"; path = "Pods/Target Support Files/Pods-DCNetwork/Pods-DCNetwork.release.xcconfig"; sourceTree = "<group>"; };
 		9A7BE0BC9E33BB64FB3C88C8 /* libPods-DCNetwork.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-DCNetwork.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -102,6 +106,8 @@
 		5599CB6B1E98D58200DC3129 /* DCNetwork */ = {
 			isa = PBXGroup;
 			children = (
+				55A774211FAC107600D14CAB /* DCNetworkReachabilityManager.h */,
+				55A774221FAC107600D14CAB /* DCNetworkReachabilityManager.m */,
 				5599CB6C1E98D58200DC3129 /* DCNetwork.h */,
 				5599CB6D1E98D58200DC3129 /* Info.plist */,
 				5599CB8F1E98D64900DC3129 /* DCRequest.h */,
@@ -169,6 +175,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				5599CB9D1E98D83E00DC3129 /* DCHTTPResponseSerializer.h in Headers */,
+				55A774231FAC107600D14CAB /* DCNetworkReachabilityManager.h in Headers */,
 				5599CBA11E98D85900DC3129 /* DCRequestCache.h in Headers */,
 				5599CBA51E98D86B00DC3129 /* DCRequestHandler.h in Headers */,
 				5599CB6E1E98D58200DC3129 /* DCNetwork.h in Headers */,
@@ -321,6 +328,7 @@
 				5599CB961E98D66E00DC3129 /* DCBaseRequest.m in Sources */,
 				5599CBA61E98D86B00DC3129 /* DCRequestHandler.m in Sources */,
 				5599CB9A1E98D68200DC3129 /* DCHTTPRequestSerializer.m in Sources */,
+				55A774241FAC107600D14CAB /* DCNetworkReachabilityManager.m in Sources */,
 				5599CBA21E98D85900DC3129 /* DCRequestCache.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
