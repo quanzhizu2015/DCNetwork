@@ -25,6 +25,8 @@
 +(DCBaseRequest *)requestWithAPI:(NSString *)api
                            method:(DCHTTPMethod)method
                            params:(NSObject *)params{
+    
+    [[DCRequestHandler sharedInstance] setValue:@"multipart/form-data" forRequestContentType:@"Content-Type"];
     DCBaseRequest *request = [[DCBaseRequest alloc] init];
     request.URLString = api;
     request.method = method;
@@ -38,11 +40,34 @@
                                params:(NSObject *)params
                         completeBlock:(DCBaseRequestBlock)completeBlock{
     
+    [[DCRequestHandler sharedInstance] setValue:@"multipart/form-data" forRequestContentType:@"Content-Type"];
     DCBaseRequest *request = [[DCBaseRequest alloc] init];
     request.URLString = api;
     request.method = method;
     request.parameters = params;
     request.orginParameters = params;
+    [request startWithCompletionBlock:^(__kindof DCBaseRequest *request) {
+        if (completeBlock) {
+            completeBlock(request);
+        }
+    }];
+    return request;
+}
+
+
++(DCBaseRequest *)startRequestWithAPI:(NSString *)api
+                               method:(DCHTTPMethod)method
+                               params:(NSObject *)params
+                                 body:(NSDictionary *)body
+                        completeBlock:(DCBaseRequestBlock)completeBlock{
+    
+    [[DCRequestHandler sharedInstance] setValue:@"application/json" forRequestContentType:@"Content-Type"];
+    DCBaseRequest *request = [[DCBaseRequest alloc] init];
+    request.URLString = api;
+    request.method = method;
+    request.parameters = params;
+    request.orginParameters = params;
+    request.body = body;
     [request startWithCompletionBlock:^(__kindof DCBaseRequest *request) {
         if (completeBlock) {
             completeBlock(request);

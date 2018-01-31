@@ -61,6 +61,12 @@
         return nil;
     }
     
+     /// 添加body
+    if (request.body) {
+        NSData *data = [NSJSONSerialization dataWithJSONObject:request.body options:NSJSONWritingPrettyPrinted error:nil];
+        [urlRequest setHTTPBody:data];
+    }
+    
     /// 添加内置的请求头
     if (request.builtinHeaderEnable) {
         [self appendBuiltinHeadersForRequest:urlRequest];
@@ -100,6 +106,13 @@
 - (void)setAccesstoken:(NSString *)accesstoken {
     _accesstoken = accesstoken;
     [self.HTTPSessionManager.requestSerializer setValue:accesstoken forHTTPHeaderField:@"accesstoken"];
+}
+
+- (void)setValue:(NSString *)value forRequestContentType:(NSString *)type{
+    [_HTTPSessionManager.requestSerializer setValue:value forHTTPHeaderField:type];
+}
+- (void)setValueforRespondContentType:(NSSet *)type{
+    _HTTPSessionManager.responseSerializer.acceptableContentTypes = type;
 }
 
 
