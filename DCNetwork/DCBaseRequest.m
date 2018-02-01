@@ -26,7 +26,7 @@
                            method:(DCHTTPMethod)method
                            params:(NSObject *)params{
     
-    [[DCRequestHandler sharedInstance] setValue:@"multipart/form-data" forRequestContentType:@"Content-Type"];
+    [[DCRequestHandler sharedInstance] setValue:@"application/x-www-form-urlencoded" forRequestContentType:@"Content-Type"];
     DCBaseRequest *request = [[DCBaseRequest alloc] init];
     request.URLString = api;
     request.method = method;
@@ -40,7 +40,7 @@
                                params:(NSObject *)params
                         completeBlock:(DCBaseRequestBlock)completeBlock{
     
-    [[DCRequestHandler sharedInstance] setValue:@"multipart/form-data" forRequestContentType:@"Content-Type"];
+    [[DCRequestHandler sharedInstance] setValue:@"application/x-www-form-urlencoded" forRequestContentType:@"Content-Type"];
     DCBaseRequest *request = [[DCBaseRequest alloc] init];
     request.URLString = api;
     request.method = method;
