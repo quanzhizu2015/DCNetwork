@@ -38,7 +38,7 @@ typedef void (^DCRequestBlock)(__kindof DCRequest *request);
 
 @property (copy, nonatomic) NSString *URLString;
 @property (copy, nonatomic) NSObject *parameters;
-
+@property (strong, nonatomic, readonly) NSDictionary<NSString *, NSString *> *headers;
 @property (copy, nonatomic) NSDictionary *body;
 //保存第一次请求参数
 @property (copy, nonatomic) NSObject *orginParameters;
@@ -118,5 +118,7 @@ typedef void (^DCRequestBlock)(__kindof DCRequest *request);
 - (void)willStart __attribute__((objc_requires_super));
 
 - (void)completed __attribute__((objc_requires_super));
+
+- (void)setValue:(NSString *)value forHeaderField:(NSString *)field;
 
 @end

@@ -138,6 +138,14 @@ NSString * __MD5(NSString *str);
     }
 }
 
+
+- (void)setValue:(NSString *)value forHeaderField:(NSString *)field {
+    if (!_headers) {
+        _headers = [NSMutableDictionary dictionary];
+    }
+    [_headers setValue:value forKey:field];
+}
+
 @end
 
 

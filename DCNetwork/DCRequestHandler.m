@@ -47,12 +47,15 @@
     NSString *URLString = request.URLString;
     NSObject *parameters = request.parameters;
     [self pretreatmentRequest:&URLString inoutParameters:&parameters];
-    URLString = [[NSURL URLWithString:URLString relativeToURL:self.baseURL] absoluteString];
-    
+    if (![URLString hasPrefix:@"http"]) {
+        URLString = [[NSURL URLWithString:URLString relativeToURL:self.baseURL] absoluteString];
+    }
+ 
     /// 添加内置的请求参数
     if (request.builtinParameterEnable) {
         parameters = [self appendBuiltinParametersForParameters:parameters];
     }
+    
     
     NSError *serializationError = nil;
     NSMutableURLRequest *urlRequest = [self.HTTPSessionManager.requestSerializer requestWithMethod:[self HTTPMethod:request.method] URLString:URLString parameters:parameters error:&serializationError];
@@ -70,6 +73,11 @@
     /// 添加内置的请求头
     if (request.builtinHeaderEnable) {
         [self appendBuiltinHeadersForRequest:urlRequest];
+    }
+    
+    /// 添加请求头
+    if (request.headers) {
+        [self appendHeadersForRequest:urlRequest headers:request.headers];
     }
     
     
@@ -143,6 +151,14 @@
     // 设置证书
     [securityPolicy setPinnedCertificates:certSet];
     _HTTPSessionManager.securityPolicy = securityPolicy;
+}
+
+- (void)appendHeadersForRequest:(NSMutableURLRequest *)request headers:(NSDictionary *)headers{
+    [headers enumerateKeysAndObjectsUsingBlock:^(NSString * _Nonnull key, NSString * _Nonnull obj, BOOL * _Nonnull stop) {
+        if (![request valueForHTTPHeaderField:key]) {
+            [request setValue:obj forHTTPHeaderField:key];
+        }
+    }];
 }
 
 #pragma mark help
