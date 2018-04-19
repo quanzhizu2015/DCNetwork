@@ -174,7 +174,7 @@
         return NULL;
     }
     else if ([self.pageKeyPath length] == 0) {
-        return NULL;
+        return self.responseObject;
     }
     return [self.responseObject valueForKeyPath:self.pageKeyPath];
 }
