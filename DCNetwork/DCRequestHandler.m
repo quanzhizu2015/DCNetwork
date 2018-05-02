@@ -56,6 +56,10 @@
         parameters = [self appendBuiltinParametersForParameters:parameters];
     }
     
+    //添加签名参数
+    if (request.encryptParameters) {
+        parameters = [self appendBuiltinEncryptParametersForParameters:request.encryptParameters toParameters:parameters];
+    }
     
     NSError *serializationError = nil;
     NSMutableURLRequest *urlRequest = [self.HTTPSessionManager.requestSerializer requestWithMethod:[self HTTPMethod:request.method] URLString:URLString parameters:parameters error:&serializationError];
@@ -169,6 +173,23 @@
             [request setValue:obj forHTTPHeaderField:key];
         }
     }];
+}
+
+
+-(id)appendBuiltinEncryptParametersForParameters:(NSDictionary *)parameters toParameters:(NSDictionary *)toParameters{
+    if ([parameters isKindOfClass:[NSDictionary class]]) {
+        NSMutableDictionary *parametersDict = [NSMutableDictionary dictionaryWithDictionary:toParameters];
+        [parameters enumerateKeysAndObjectsUsingBlock:^(NSString * _Nonnull key, id  _Nonnull obj, BOOL * _Nonnull stop) {
+            if (![parametersDict objectForKey:key]) {
+                [parametersDict setObject:obj forKey:key];
+            }else{
+                [parametersDict removeObjectForKey:key];
+                [parametersDict setObject:obj forKey:key];
+            }
+        }];
+        toParameters = [parametersDict copy];
+    }
+    return toParameters;
 }
 
 - (id)appendBuiltinParametersForParameters:(id)parameters {

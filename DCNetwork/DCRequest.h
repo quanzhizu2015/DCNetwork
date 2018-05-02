@@ -42,6 +42,10 @@ typedef void (^DCRequestBlock)(__kindof DCRequest *request);
 @property (copy, nonatomic) NSDictionary *body;
 //保存第一次请求参数
 @property (copy, nonatomic) NSObject *orginParameters;
+/**
+签名参数
+ */
+@property (copy, nonatomic) NSDictionary *encryptParameters;
 @property (assign, nonatomic) DCHTTPMethod method;
 
 
