@@ -11,7 +11,7 @@
 #import "DCHTTPRequestSerializer.h"
 #import "DCHTTPResponseSerializer.h"
 #import "DCRequest.h"
-
+#import <CommonCrypto/CommonDigest.h>
 
 @interface DCRequestHandler ()
 
@@ -47,18 +47,26 @@
     NSString *URLString = request.URLString;
     NSObject *parameters = request.parameters;
     [self pretreatmentRequest:&URLString inoutParameters:&parameters];
-    if (![URLString hasPrefix:@"http"]) {
-        URLString = [[NSURL URLWithString:URLString relativeToURL:self.baseURL] absoluteString];
-    }
- 
+    
     /// 添加内置的请求参数
     if (request.builtinParameterEnable) {
         parameters = [self appendBuiltinParametersForParameters:parameters];
     }
     
+    
+    if (![URLString hasPrefix:@"http"]) {
+        URLString = [[NSURL URLWithString:URLString relativeToURL:self.baseURL] absoluteString];
+        //签名
+        if([parameters isKindOfClass:[NSDictionary class]]){
+            parameters = [self urlEncodeAllParams:parameters];
+            request.encryptParameters = [self encrypt:parameters];
+        }
+    }
+
+    
     //添加签名参数
-    if (request.encryptParameters) {
-        parameters = [self appendBuiltinEncryptParametersForParameters:request.encryptParameters toParameters:parameters];
+    if (request.encryptParameters && [parameters isKindOfClass:[NSDictionary class]]) {
+        parameters = [self appendBuiltinEncryptParametersForParameters:request.encryptParameters toParameters:(NSDictionary *)parameters];
     }
     
     NSError *serializationError = nil;
@@ -105,6 +113,87 @@
     [dataTask resume];
     
     return dataTask;
+}
+
+
+-(NSDictionary *)encrypt:(NSObject *)params{
+    
+    if (!params) {
+        return nil;
+    }
+    NSDictionary *realPramaDic = nil;
+    
+    if ([params isKindOfClass:[NSDictionary class]] || [params isKindOfClass:[NSMutableDictionary class]]) {
+        realPramaDic = (NSDictionary *)params;
+    }
+    
+    NSDictionary * puleDic = [[NSDictionary alloc] initWithDictionary:params];
+    NSString *timesamp = [NSString stringWithFormat:@"%ld",[[NSDate date] timeIntervalSince1970]];
+    NSMutableDictionary *dic = [[NSMutableDictionary alloc] initWithDictionary:puleDic];
+    [dic setObject:timesamp forKey:@"timestamp"];
+    NSArray *arrPrimary = [dic allKeys];
+    NSArray *keys = [arrPrimary sortedArrayUsingComparator:^NSComparisonResult(id obj1, id obj2){
+        NSComparisonResult result = [obj1 compare:obj2];
+        return result==NSOrderedDescending;//NSOrderedAscending 倒序
+    }];
+    
+    NSString *singString = @"";
+    int i = 0;
+    for (NSString *key in keys) {
+        NSString *value = [dic objectForKey:key];
+        if (i==0) {
+            singString = [NSString stringWithFormat:@"%@=%@",key,value];
+        }else{
+            singString = [NSString stringWithFormat:@"%@&%@=%@",singString,key,value];
+        }
+        
+        i++;
+        
+    }
+    
+    if (self.accesstoken) {
+        singString = [NSString stringWithFormat:@"%@%@",singString,[self urlEncode:self.accesstoken]];
+    }
+    NSMutableDictionary *realDic = [NSMutableDictionary dictionary];
+    [realDic setObject:[self md5:singString] forKey:@"sign"];
+    [realDic setObject:timesamp forKey:@"timestamp"];
+    
+    return realDic;
+    
+}
+
+//参数urlencode
+-(NSObject *)urlEncodeAllParams:(NSObject *)params{
+    
+    if ([params isKindOfClass:[NSDictionary class]]) {
+        NSDictionary *dic = [[NSDictionary alloc] initWithDictionary:(NSDictionary *)params];
+        NSMutableDictionary *mutableDic = [NSMutableDictionary dictionary];
+        [dic enumerateKeysAndObjectsUsingBlock:^(id  _Nonnull key, id  _Nonnull obj, BOOL * _Nonnull stop) {
+            if ([obj isKindOfClass:[NSString class]]) {
+                NSString *object = (NSString *)obj;
+                obj = [self urlEncode:object];
+            }
+            [mutableDic setObject:obj forKey:key];
+        }];
+        params = mutableDic;
+    }
+    
+    return params;
+}
+//编码
+- (NSString *)urlEncode:(NSString *)url {
+    return [url stringByAddingPercentEncodingWithAllowedCharacters:[NSCharacterSet URLQueryAllowedCharacterSet]];
+}
+
+//md5
+- (NSString *)md5:(NSString *)string {
+    const char *cStr = [string UTF8String];
+    unsigned char digest[CC_MD5_DIGEST_LENGTH];
+    CC_MD5( cStr, (unsigned int)strlen(cStr), digest);
+    NSMutableString *output = [NSMutableString stringWithCapacity:CC_MD5_DIGEST_LENGTH * 2];
+    for(int i = 0; i < CC_MD5_DIGEST_LENGTH; i++)
+        [output appendFormat:@"%02x", digest[i]];
+    return output;
 }
 
 #pragma mark get / set
