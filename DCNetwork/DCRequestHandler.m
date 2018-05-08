@@ -125,10 +125,12 @@
     
     if ([params isKindOfClass:[NSDictionary class]] || [params isKindOfClass:[NSMutableDictionary class]]) {
         realPramaDic = (NSDictionary *)params;
+    }else{
+        return params;
     }
     
-    NSDictionary * puleDic = [[NSDictionary alloc] initWithDictionary:params];
-    NSString *timesamp = [NSString stringWithFormat:@"%ld",[[NSDate date] timeIntervalSince1970]];
+    NSDictionary * puleDic = [[NSDictionary alloc] initWithDictionary:realPramaDic];
+    NSString *timesamp = [NSString stringWithFormat:@"%0.f",[[NSDate date] timeIntervalSince1970]];
     NSMutableDictionary *dic = [[NSMutableDictionary alloc] initWithDictionary:puleDic];
     [dic setObject:timesamp forKey:@"timestamp"];
     NSArray *arrPrimary = [dic allKeys];
@@ -182,7 +184,26 @@
 }
 //编码
 - (NSString *)urlEncode:(NSString *)url {
-    return [url stringByAddingPercentEncodingWithAllowedCharacters:[NSCharacterSet URLQueryAllowedCharacterSet]];
+    if (url && [url length]>0) {
+        NSMutableString *output = [NSMutableString string];
+        const unsigned char *source = (const unsigned char *)[url UTF8String];
+        int sourceLen = (int)strlen((const char *)source);
+        for (int i = 0; i < sourceLen; ++i) {
+            const unsigned char thisChar = source[i];
+            if (thisChar == ' '){
+                [output appendString:@"+"];
+            } else if (thisChar == '.' || thisChar == '-' || thisChar == '_' || thisChar == '~' || thisChar == '*' ||
+                       (thisChar >= 'a' && thisChar <= 'z') ||
+                       (thisChar >= 'A' && thisChar <= 'Z') ||
+                       (thisChar >= '0' && thisChar <= '9')) {
+                [output appendFormat:@"%c", thisChar];
+            } else {
+                [output appendFormat:@"%%%02X", thisChar];
+            }
+        }
+        return output;
+    }
+    return url;
 }
 
 //md5
