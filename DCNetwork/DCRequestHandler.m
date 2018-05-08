@@ -192,7 +192,7 @@
             const unsigned char thisChar = source[i];
             if (thisChar == ' '){
                 [output appendString:@"+"];
-            } else if (thisChar == '.' || thisChar == '-' || thisChar == '_' || thisChar == '~' || thisChar == '*' ||
+            } else if (thisChar == '.' || thisChar == '-' || thisChar == '_' ||  thisChar == '*' ||
                        (thisChar >= 'a' && thisChar <= 'z') ||
                        (thisChar >= 'A' && thisChar <= 'Z') ||
                        (thisChar >= '0' && thisChar <= '9')) {
