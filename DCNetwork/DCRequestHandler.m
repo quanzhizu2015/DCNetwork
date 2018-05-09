@@ -138,11 +138,17 @@
         NSComparisonResult result = [obj1 compare:obj2];
         return result==NSOrderedDescending;//NSOrderedAscending 倒序
     }];
-    
     NSString *singString = @"";
     int i = 0;
     for (NSString *key in keys) {
-        NSString *value = [dic objectForKey:key];
+        id dicValue = [dic objectForKey:key];
+        if (dicValue == nil || [key isEqualToString:@"sign"]) {
+            continue;
+        }
+        NSString *value = [NSString stringWithFormat:@"%@",dicValue];
+        if ([value length] <= 0) {
+            continue;
+        }
         if (i==0) {
             singString = [NSString stringWithFormat:@"%@=%@",key,value];
         }else{
@@ -163,6 +169,7 @@
     return realDic;
     
 }
+
 
 //参数urlencode
 -(NSObject *)urlEncodeAllParams:(NSObject *)params{
@@ -190,12 +197,13 @@
         int sourceLen = (int)strlen((const char *)source);
         for (int i = 0; i < sourceLen; ++i) {
             const unsigned char thisChar = source[i];
-            if (thisChar == ' '){
-                [output appendString:@"+"];
-            } else if (thisChar == '.' || thisChar == '-' || thisChar == '_' ||  thisChar == '*' ||
-                       (thisChar >= 'a' && thisChar <= 'z') ||
-                       (thisChar >= 'A' && thisChar <= 'Z') ||
-                       (thisChar >= '0' && thisChar <= '9')) {
+            //            if (thisChar == ' '){
+            //                [output appendString:@"+"];
+            //            } else
+            if (thisChar == '.' || thisChar == '-' || thisChar == '_' ||  thisChar == '*' ||
+                (thisChar >= 'a' && thisChar <= 'z') ||
+                (thisChar >= 'A' && thisChar <= 'Z') ||
+                (thisChar >= '0' && thisChar <= '9')) {
                 [output appendFormat:@"%c", thisChar];
             } else {
                 [output appendFormat:@"%%%02X", thisChar];
