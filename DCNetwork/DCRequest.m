@@ -26,6 +26,7 @@ NSString * __MD5(NSString *str);
     if (self = [super init]) {
         _builtinHeaderEnable = YES;
         _builtinParameterEnable = YES;
+        _offLineCache = NO;
         _priority = ESRequestPriorityDefault;
     }
     return self;
@@ -81,6 +82,7 @@ NSString * __MD5(NSString *str);
 
 - (void)completed {
     [self storeCache];
+    [self readCacheOffLineCache];
     [self.delegate requestCompletion:self];
     !_completionBlock ?: _completionBlock(self);
     _completionBlock = NULL;
@@ -113,7 +115,7 @@ NSString * __MD5(NSString *str);
     if (_dataFromCache) {
         return;
     }
-    if (self.cacheTimeoutInterval <= 0 || !_responseObject) {
+    if ((self.cacheTimeoutInterval <= 0 && !_offLineCache ) || !_responseObject) {
         return;
     }
     [[DCRequestCache sharedInstance] storeCachedJSONObjectForRequest:self];
@@ -123,12 +125,34 @@ NSString * __MD5(NSString *str);
     if (_mustFromNetwork) {
         return NO;
     }
-    if (self.cacheTimeoutInterval <= 0) {
+    if (self.cacheTimeoutInterval) {
         return NO;
     }
     BOOL isTimeout;
     id cachedJSONObject = [[DCRequestCache sharedInstance] cachedJSONObjectForRequest:self isTimeout:&isTimeout];
     if (cachedJSONObject && !isTimeout) {
+        _dataFromCache = YES;
+        _responseObject = cachedJSONObject;
+        return YES;
+    }
+    else {
+        return NO;
+    }
+}
+
+- (BOOL)readCacheOffLineCache {
+    if (_mustFromNetwork) {
+        return NO;
+    }
+    if (!_offLineCache) {
+        return NO;
+    }
+    if (_responseObject) {
+        return NO;
+    }
+    BOOL isTimeout;
+    id cachedJSONObject = [[DCRequestCache sharedInstance] cachedJSONObjectForRequest:self isTimeout:&isTimeout];
+    if (cachedJSONObject && _offLineCache) {
         _dataFromCache = YES;
         _responseObject = cachedJSONObject;
         return YES;

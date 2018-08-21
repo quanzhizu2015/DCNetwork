@@ -65,7 +65,15 @@ typedef void (^DCRequestBlock)(__kindof DCRequest *request);
 @property (assign, nonatomic) BOOL builtinParameterEnable;
 
 
+/**
+ 数据必须来源网络
+ */
 @property (assign, nonatomic) BOOL mustFromNetwork;
+
+/**
+ 离线缓存
+ */
+@property (assign, nonatomic) BOOL offLineCache;
 @property (readonly) NSURLSessionTaskState state;
 @property (assign, nonatomic) NSInteger tag;
 @property (strong, nonatomic, readonly) NSURLSessionTask *task;
