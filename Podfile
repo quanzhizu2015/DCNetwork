@@ -1,6 +1,6 @@
 target 'DCNetwork' do
 #use_frameworks!
-pod 'AFNetworking', '~> 3.0'
-pod 'MBProgressHUD', '~> 1.0.0'
+pod 'AFNetworking', '~> 3.2.1'
+pod 'MBProgressHUD', '~> 1.1.0'
 
 end

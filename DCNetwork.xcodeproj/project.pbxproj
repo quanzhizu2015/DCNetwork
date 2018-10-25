@@ -7,45 +7,32 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		5599CB6E1E98D58200DC3129 /* DCNetwork.h in Headers */ = {isa = PBXBuildFile; fileRef = 5599CB6C1E98D58200DC3129 /* DCNetwork.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		5599CB911E98D64900DC3129 /* DCRequest.h in Headers */ = {isa = PBXBuildFile; fileRef = 5599CB8F1E98D64900DC3129 /* DCRequest.h */; };
-		5599CB921E98D64900DC3129 /* DCRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 5599CB901E98D64900DC3129 /* DCRequest.m */; };
-		5599CB951E98D66E00DC3129 /* DCBaseRequest.h in Headers */ = {isa = PBXBuildFile; fileRef = 5599CB931E98D66E00DC3129 /* DCBaseRequest.h */; };
-		5599CB961E98D66E00DC3129 /* DCBaseRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 5599CB941E98D66E00DC3129 /* DCBaseRequest.m */; };
-		5599CB991E98D68200DC3129 /* DCHTTPRequestSerializer.h in Headers */ = {isa = PBXBuildFile; fileRef = 5599CB971E98D68200DC3129 /* DCHTTPRequestSerializer.h */; };
-		5599CB9A1E98D68200DC3129 /* DCHTTPRequestSerializer.m in Sources */ = {isa = PBXBuildFile; fileRef = 5599CB981E98D68200DC3129 /* DCHTTPRequestSerializer.m */; };
-		5599CB9D1E98D83E00DC3129 /* DCHTTPResponseSerializer.h in Headers */ = {isa = PBXBuildFile; fileRef = 5599CB9B1E98D83E00DC3129 /* DCHTTPResponseSerializer.h */; };
-		5599CB9E1E98D83E00DC3129 /* DCHTTPResponseSerializer.m in Sources */ = {isa = PBXBuildFile; fileRef = 5599CB9C1E98D83E00DC3129 /* DCHTTPResponseSerializer.m */; };
-		5599CBA11E98D85900DC3129 /* DCRequestCache.h in Headers */ = {isa = PBXBuildFile; fileRef = 5599CB9F1E98D85900DC3129 /* DCRequestCache.h */; };
-		5599CBA21E98D85900DC3129 /* DCRequestCache.m in Sources */ = {isa = PBXBuildFile; fileRef = 5599CBA01E98D85900DC3129 /* DCRequestCache.m */; };
-		5599CBA51E98D86B00DC3129 /* DCRequestHandler.h in Headers */ = {isa = PBXBuildFile; fileRef = 5599CBA31E98D86B00DC3129 /* DCRequestHandler.h */; };
-		5599CBA61E98D86B00DC3129 /* DCRequestHandler.m in Sources */ = {isa = PBXBuildFile; fileRef = 5599CBA41E98D86B00DC3129 /* DCRequestHandler.m */; };
 		5599CBCA1E98F06100DC3129 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 5599CBC91E98F06100DC3129 /* main.m */; };
 		5599CBCD1E98F06100DC3129 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 5599CBCC1E98F06100DC3129 /* AppDelegate.m */; };
 		5599CBD01E98F06100DC3129 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5599CBCF1E98F06100DC3129 /* ViewController.m */; };
 		5599CBD31E98F06100DC3129 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5599CBD11E98F06100DC3129 /* Main.storyboard */; };
 		5599CBD51E98F06100DC3129 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5599CBD41E98F06100DC3129 /* Assets.xcassets */; };
 		5599CBD81E98F06100DC3129 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5599CBD61E98F06100DC3129 /* LaunchScreen.storyboard */; };
+		55A7D24C212BCC6200BA508C /* DCRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 55A7D23E212BCC6100BA508C /* DCRequest.m */; };
+		55A7D24D212BCC6200BA508C /* DCHTTPResponseSerializer.h in Headers */ = {isa = PBXBuildFile; fileRef = 55A7D23F212BCC6100BA508C /* DCHTTPResponseSerializer.h */; };
+		55A7D24E212BCC6200BA508C /* DCRequest.h in Headers */ = {isa = PBXBuildFile; fileRef = 55A7D240212BCC6100BA508C /* DCRequest.h */; };
+		55A7D24F212BCC6200BA508C /* DCRequestCache.h in Headers */ = {isa = PBXBuildFile; fileRef = 55A7D241212BCC6100BA508C /* DCRequestCache.h */; };
+		55A7D250212BCC6200BA508C /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 55A7D242212BCC6100BA508C /* Info.plist */; };
+		55A7D251212BCC6200BA508C /* DCBaseRequest.h in Headers */ = {isa = PBXBuildFile; fileRef = 55A7D243212BCC6100BA508C /* DCBaseRequest.h */; };
+		55A7D252212BCC6200BA508C /* DCHTTPResponseSerializer.m in Sources */ = {isa = PBXBuildFile; fileRef = 55A7D244212BCC6200BA508C /* DCHTTPResponseSerializer.m */; };
+		55A7D253212BCC6200BA508C /* DCHTTPRequestSerializer.m in Sources */ = {isa = PBXBuildFile; fileRef = 55A7D245212BCC6200BA508C /* DCHTTPRequestSerializer.m */; };
+		55A7D254212BCC6200BA508C /* DCRequestCache.m in Sources */ = {isa = PBXBuildFile; fileRef = 55A7D246212BCC6200BA508C /* DCRequestCache.m */; };
+		55A7D255212BCC6200BA508C /* DCHTTPRequestSerializer.h in Headers */ = {isa = PBXBuildFile; fileRef = 55A7D247212BCC6200BA508C /* DCHTTPRequestSerializer.h */; };
+		55A7D256212BCC6200BA508C /* DCRequestHandler.m in Sources */ = {isa = PBXBuildFile; fileRef = 55A7D248212BCC6200BA508C /* DCRequestHandler.m */; };
+		55A7D257212BCC6200BA508C /* DCBaseRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 55A7D249212BCC6200BA508C /* DCBaseRequest.m */; };
+		55A7D258212BCC6200BA508C /* DCNetwork.h in Headers */ = {isa = PBXBuildFile; fileRef = 55A7D24A212BCC6200BA508C /* DCNetwork.h */; };
+		55A7D259212BCC6200BA508C /* DCRequestHandler.h in Headers */ = {isa = PBXBuildFile; fileRef = 55A7D24B212BCC6200BA508C /* DCRequestHandler.h */; };
 		C4668DA890297597B5FC3C94 /* libPods-DCNetwork.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 9A7BE0BC9E33BB64FB3C88C8 /* libPods-DCNetwork.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		0D4D2A1B2FEA6B68C2A80C39 /* Pods-DCNetwork.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DCNetwork.debug.xcconfig"; path = "Pods/Target Support Files/Pods-DCNetwork/Pods-DCNetwork.debug.xcconfig"; sourceTree = "<group>"; };
 		5599CB691E98D58200DC3129 /* DCNetwork.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = DCNetwork.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		5599CB6C1E98D58200DC3129 /* DCNetwork.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DCNetwork.h; sourceTree = "<group>"; };
-		5599CB6D1E98D58200DC3129 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		5599CB8F1E98D64900DC3129 /* DCRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DCRequest.h; sourceTree = "<group>"; };
-		5599CB901E98D64900DC3129 /* DCRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DCRequest.m; sourceTree = "<group>"; };
-		5599CB931E98D66E00DC3129 /* DCBaseRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DCBaseRequest.h; sourceTree = "<group>"; };
-		5599CB941E98D66E00DC3129 /* DCBaseRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DCBaseRequest.m; sourceTree = "<group>"; };
-		5599CB971E98D68200DC3129 /* DCHTTPRequestSerializer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DCHTTPRequestSerializer.h; sourceTree = "<group>"; };
-		5599CB981E98D68200DC3129 /* DCHTTPRequestSerializer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DCHTTPRequestSerializer.m; sourceTree = "<group>"; };
-		5599CB9B1E98D83E00DC3129 /* DCHTTPResponseSerializer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DCHTTPResponseSerializer.h; sourceTree = "<group>"; };
-		5599CB9C1E98D83E00DC3129 /* DCHTTPResponseSerializer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DCHTTPResponseSerializer.m; sourceTree = "<group>"; };
-		5599CB9F1E98D85900DC3129 /* DCRequestCache.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DCRequestCache.h; sourceTree = "<group>"; };
-		5599CBA01E98D85900DC3129 /* DCRequestCache.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DCRequestCache.m; sourceTree = "<group>"; };
-		5599CBA31E98D86B00DC3129 /* DCRequestHandler.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DCRequestHandler.h; sourceTree = "<group>"; };
-		5599CBA41E98D86B00DC3129 /* DCRequestHandler.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DCRequestHandler.m; sourceTree = "<group>"; };
 		5599CBC61E98F06100DC3129 /* DCNetworkDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DCNetworkDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		5599CBC91E98F06100DC3129 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		5599CBCB1E98F06100DC3129 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -56,6 +43,20 @@
 		5599CBD41E98F06100DC3129 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		5599CBD71E98F06100DC3129 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		5599CBD91E98F06100DC3129 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		55A7D23E212BCC6100BA508C /* DCRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DCRequest.m; sourceTree = "<group>"; };
+		55A7D23F212BCC6100BA508C /* DCHTTPResponseSerializer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DCHTTPResponseSerializer.h; sourceTree = "<group>"; };
+		55A7D240212BCC6100BA508C /* DCRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DCRequest.h; sourceTree = "<group>"; };
+		55A7D241212BCC6100BA508C /* DCRequestCache.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DCRequestCache.h; sourceTree = "<group>"; };
+		55A7D242212BCC6100BA508C /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		55A7D243212BCC6100BA508C /* DCBaseRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DCBaseRequest.h; sourceTree = "<group>"; };
+		55A7D244212BCC6200BA508C /* DCHTTPResponseSerializer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DCHTTPResponseSerializer.m; sourceTree = "<group>"; };
+		55A7D245212BCC6200BA508C /* DCHTTPRequestSerializer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DCHTTPRequestSerializer.m; sourceTree = "<group>"; };
+		55A7D246212BCC6200BA508C /* DCRequestCache.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DCRequestCache.m; sourceTree = "<group>"; };
+		55A7D247212BCC6200BA508C /* DCHTTPRequestSerializer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DCHTTPRequestSerializer.h; sourceTree = "<group>"; };
+		55A7D248212BCC6200BA508C /* DCRequestHandler.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DCRequestHandler.m; sourceTree = "<group>"; };
+		55A7D249212BCC6200BA508C /* DCBaseRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DCBaseRequest.m; sourceTree = "<group>"; };
+		55A7D24A212BCC6200BA508C /* DCNetwork.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DCNetwork.h; sourceTree = "<group>"; };
+		55A7D24B212BCC6200BA508C /* DCRequestHandler.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DCRequestHandler.h; sourceTree = "<group>"; };
 		5E02E664B3E6D8C3526E00DD /* Pods-DCNetwork.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DCNetwork.release.xcconfig"; path = "Pods/Target Support Files/Pods-DCNetwork/Pods-DCNetwork.release.xcconfig"; sourceTree = "<group>"; };
 		9A7BE0BC9E33BB64FB3C88C8 /* libPods-DCNetwork.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-DCNetwork.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -102,20 +103,20 @@
 		5599CB6B1E98D58200DC3129 /* DCNetwork */ = {
 			isa = PBXGroup;
 			children = (
-				5599CB6C1E98D58200DC3129 /* DCNetwork.h */,
-				5599CB6D1E98D58200DC3129 /* Info.plist */,
-				5599CB8F1E98D64900DC3129 /* DCRequest.h */,
-				5599CB901E98D64900DC3129 /* DCRequest.m */,
-				5599CB931E98D66E00DC3129 /* DCBaseRequest.h */,
-				5599CB941E98D66E00DC3129 /* DCBaseRequest.m */,
-				5599CB971E98D68200DC3129 /* DCHTTPRequestSerializer.h */,
-				5599CB981E98D68200DC3129 /* DCHTTPRequestSerializer.m */,
-				5599CB9B1E98D83E00DC3129 /* DCHTTPResponseSerializer.h */,
-				5599CB9C1E98D83E00DC3129 /* DCHTTPResponseSerializer.m */,
-				5599CB9F1E98D85900DC3129 /* DCRequestCache.h */,
-				5599CBA01E98D85900DC3129 /* DCRequestCache.m */,
-				5599CBA31E98D86B00DC3129 /* DCRequestHandler.h */,
-				5599CBA41E98D86B00DC3129 /* DCRequestHandler.m */,
+				55A7D243212BCC6100BA508C /* DCBaseRequest.h */,
+				55A7D249212BCC6200BA508C /* DCBaseRequest.m */,
+				55A7D247212BCC6200BA508C /* DCHTTPRequestSerializer.h */,
+				55A7D245212BCC6200BA508C /* DCHTTPRequestSerializer.m */,
+				55A7D23F212BCC6100BA508C /* DCHTTPResponseSerializer.h */,
+				55A7D244212BCC6200BA508C /* DCHTTPResponseSerializer.m */,
+				55A7D24A212BCC6200BA508C /* DCNetwork.h */,
+				55A7D240212BCC6100BA508C /* DCRequest.h */,
+				55A7D23E212BCC6100BA508C /* DCRequest.m */,
+				55A7D241212BCC6100BA508C /* DCRequestCache.h */,
+				55A7D246212BCC6200BA508C /* DCRequestCache.m */,
+				55A7D24B212BCC6200BA508C /* DCRequestHandler.h */,
+				55A7D248212BCC6200BA508C /* DCRequestHandler.m */,
+				55A7D242212BCC6100BA508C /* Info.plist */,
 			);
 			path = DCNetwork;
 			sourceTree = "<group>";
@@ -168,13 +169,13 @@
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				5599CB9D1E98D83E00DC3129 /* DCHTTPResponseSerializer.h in Headers */,
-				5599CBA11E98D85900DC3129 /* DCRequestCache.h in Headers */,
-				5599CBA51E98D86B00DC3129 /* DCRequestHandler.h in Headers */,
-				5599CB6E1E98D58200DC3129 /* DCNetwork.h in Headers */,
-				5599CB951E98D66E00DC3129 /* DCBaseRequest.h in Headers */,
-				5599CB991E98D68200DC3129 /* DCHTTPRequestSerializer.h in Headers */,
-				5599CB911E98D64900DC3129 /* DCRequest.h in Headers */,
+				55A7D251212BCC6200BA508C /* DCBaseRequest.h in Headers */,
+				55A7D24D212BCC6200BA508C /* DCHTTPResponseSerializer.h in Headers */,
+				55A7D258212BCC6200BA508C /* DCNetwork.h in Headers */,
+				55A7D24E212BCC6200BA508C /* DCRequest.h in Headers */,
+				55A7D24F212BCC6200BA508C /* DCRequestCache.h in Headers */,
+				55A7D255212BCC6200BA508C /* DCHTTPRequestSerializer.h in Headers */,
+				55A7D259212BCC6200BA508C /* DCRequestHandler.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -190,7 +191,6 @@
 				5599CB651E98D58200DC3129 /* Frameworks */,
 				5599CB661E98D58200DC3129 /* Headers */,
 				5599CB671E98D58200DC3129 /* Resources */,
-				A990150F63E5ABB3739D1013 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -263,6 +263,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				55A7D250212BCC6200BA508C /* Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -285,28 +286,16 @@
 			files = (
 			);
 			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
 			);
 			name = "[CP] Check Pods Manifest.lock";
 			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-DCNetwork-checkManifestLockResult.txt",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
-			showEnvVarsInLog = 0;
-		};
-		A990150F63E5ABB3739D1013 /* [CP] Copy Pods Resources */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "[CP] Copy Pods Resources";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-DCNetwork/Pods-DCNetwork-resources.sh\"\n";
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
@@ -316,12 +305,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				5599CB921E98D64900DC3129 /* DCRequest.m in Sources */,
-				5599CB9E1E98D83E00DC3129 /* DCHTTPResponseSerializer.m in Sources */,
-				5599CB961E98D66E00DC3129 /* DCBaseRequest.m in Sources */,
-				5599CBA61E98D86B00DC3129 /* DCRequestHandler.m in Sources */,
-				5599CB9A1E98D68200DC3129 /* DCHTTPRequestSerializer.m in Sources */,
-				5599CBA21E98D85900DC3129 /* DCRequestCache.m in Sources */,
+				55A7D24C212BCC6200BA508C /* DCRequest.m in Sources */,
+				55A7D257212BCC6200BA508C /* DCBaseRequest.m in Sources */,
+				55A7D253212BCC6200BA508C /* DCHTTPRequestSerializer.m in Sources */,
+				55A7D252212BCC6200BA508C /* DCHTTPResponseSerializer.m in Sources */,
+				55A7D256212BCC6200BA508C /* DCRequestHandler.m in Sources */,
+				55A7D254212BCC6200BA508C /* DCRequestCache.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

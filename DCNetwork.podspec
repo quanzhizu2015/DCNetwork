@@ -16,7 +16,7 @@ Pod::Spec.new do |s|
   #
 
   s.name         = "DCNetwork"
-  s.version      = "0.2.6"
+  s.version      = "0.2.7"
   s.summary      = "网络DCNetwork."
 
   # This description is used to generate tags and improve search results.
